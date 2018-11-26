@@ -276,6 +276,7 @@ namespace UnityEngine.XR.iOS
 
     }
 
+    [Flags]
     public enum UnityARSessionRunOption
     {
         /** The session will reset tracking. */
