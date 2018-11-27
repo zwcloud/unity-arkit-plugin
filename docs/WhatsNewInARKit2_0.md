@@ -93,15 +93,15 @@ Again very similar to **ARReferenceImage**, we're going to set up a **ARReferenc
 
 To create an **ARReferenceObjectAsset**, in the Editor go to your Project view into the directory where you want to create the asset, and bring up the _Create/UnityARKitPlugin/ARReferenceObjectAsset_ menu:
 
-![alt text](images/ARReferenceObjectAsset_creation.png)
+![alt text] (images/ARReferenceObjectAsset_creation.png)
 
 Then in the inspector, when **ARReferenceObjectAsset** is selected, populate the Reference Object field with the raw .arobject file that has also been moved over to a project folder.
 
-![alt text](images/ARReferenceObject_Inspector.png)
+![alt text] (images/ARReferenceObject_Inspector.png)
 
 Finally, add a bunch of these **ARReferenceObjectAssets** to a **ARReferenceObjectsSetAsset** created in the same way as above:
 
-![alt text](images/ARReferenceObjectsSetAsset_Inpsector.png)
+![alt text] (images/ARReferenceObjectsSetAsset_Inpsector.png)
 
 Now add a reference to this **ARReferenceObjectsSetAsset** to your **ARKitWorldTrackingSessionConfiguration.detectionObjects** field and start your session.  It should detect the objects that you have specified.
 
@@ -125,7 +125,7 @@ Next, when that event is triggered, you can check that the name of the anchor ma
 
 You may create .arobject files either from the UnityObjectScanner example described below, or from Apple's ARKit Object Scanner app which both produce the same format of file for use in the workflow above.
 
-![alt text](images/UnityObjectAnchor.m4v "UnityObjectAnchor scene example")
+![alt text] (images/UnityObjectAnchor.m4v "UnityObjectAnchor scene example")
 
 
 You can also look at a more complete example that does object creation using a pickable bounding box and object detection:
@@ -134,7 +134,7 @@ _Examples/ARKit2.0/UnityARObjectScanner/UnityARObjectScanner.unity_
 
 You can save .arobjects that you have scanned using this example.  To get the saved .arobjects to your Mac so that you can populate your app with reference objects, you can use iTunes FileSharing while you have your device connected to your Mac:
 
-![alt text](images/ARReferenceObject_FileShare.png)
+![alt text] (images/ARReferenceObject_FileShare.png)
 
 Once you have the files on the Mac, you can rename them before you put them into your Unity project.
 
@@ -178,7 +178,7 @@ The detecting mode works like the object anchor example above, but uses a method
 
 Here is a video that shows you this example in action:
 
-![alt text](images/UnityObjectScanner.m4v "UnityObjectScanner scene example")
+![alt text] (images/UnityObjectScanner.m4v "UnityObjectScanner scene example")
 
 
 ## AREnvironmentProbeAnchor
@@ -246,6 +246,6 @@ The other improvement is that it now does eye gaze tracking.  You receive a tran
 
 Take a look at _Examples/ARKit2.0/UnityTongueAndEyes/UnityTongueAndEyes.unity_ for an example of how to make use of this new data coming in from the face anchors.
 
-![alt text](images/UnityTongueAndEyes.gif "UnityTongueAndEyes scene example")
+![alt text] (images/UnityTongueAndEyes.gif "UnityTongueAndEyes scene example")
 
 
