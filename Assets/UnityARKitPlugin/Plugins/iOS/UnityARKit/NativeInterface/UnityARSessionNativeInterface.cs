@@ -99,6 +99,17 @@ namespace UnityEngine.XR.iOS
             ad.transform.column3 = arkitTransform.GetColumn(3);
             return ad;
         }
+        public static UnityARUserAnchorData UnityARUserAnchorDataFromPositionAndRotation(Vector3 position, Quaternion rotation)
+        {
+            // create an anchor data struct from a game object transform
+            Matrix4x4 arkitTransform = UnityARMatrixOps.UnityToARKitCoordChange(position, rotation);
+            UnityARUserAnchorData ad = new UnityARUserAnchorData();
+            ad.transform.column0 = arkitTransform.GetColumn(0);
+            ad.transform.column1 = arkitTransform.GetColumn(1);
+            ad.transform.column2 = arkitTransform.GetColumn(2);
+            ad.transform.column3 = arkitTransform.GetColumn(3);
+            return ad;
+        }
     }
 
 

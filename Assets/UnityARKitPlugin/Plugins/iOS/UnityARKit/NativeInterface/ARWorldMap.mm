@@ -3,6 +3,7 @@
 // Main implementation of ARKit plugin's ARWorldMap
 
 #include "ARKitDefines.h"
+#import <Foundation/Foundation.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,6 +14,17 @@ bool worldMap_GetSupported()
     return UnityAreFeaturesSupported(kUnityARKitSupportedFeaturesWorldMap);
 }
 
+void worldMap_Dump(ARWorldMap* worldMap)
+{
+    if (worldMap == nullptr || !worldMap_GetSupported())
+        return;
+    
+    NSLog(@"Anchors in the worldMap:");
+    for (ARAnchor* anchor in worldMap.anchors) {
+        NSLog([anchor.identifier UUIDString]);
+    }
+}
+    
 bool worldMap_Save(const void* worldMapPtr, const char* path)
 {
     if (worldMapPtr == nullptr || path == nullptr || !worldMap_GetSupported())
@@ -43,6 +55,8 @@ void* worldMap_Load(const char* path)
         NSLog(@"%@", error);
 
     ARWorldMap* worldMap = [NSKeyedUnarchiver unarchiveObjectWithData:wmdata];
+    
+    worldMap_Dump(worldMap);
     
     return (__bridge_retained void*)worldMap;
 }
