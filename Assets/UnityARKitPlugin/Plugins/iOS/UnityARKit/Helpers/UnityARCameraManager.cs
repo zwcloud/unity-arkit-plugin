@@ -23,7 +23,7 @@ public class UnityARCameraManager : MonoBehaviour {
 
     [Header("Object Tracking")]
     public ARReferenceObjectsSetAsset detectionObjects = null;
-    private bool sessionStarted = false;
+    internal bool sessionStarted = false;
 
     public ARKitWorldTrackingSessionConfiguration sessionConfiguration
     {
