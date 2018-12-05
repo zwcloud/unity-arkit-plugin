@@ -352,7 +352,7 @@ public class UnityARBuildPostprocessor
 		//TODO: remove this when XCode actool is able to handles ARResources despite deployment target
 		if (imageSets.Count > 0)
 		{
-			proj.SetBuildProperty(target, "IPHONEOS_DEPLOYMENT_TARGET", "11.3");
+			proj.SetBuildProperty(target, "IPHONEOS_DEPLOYMENT_TARGET", "12.0");
 		}
 
 		// Add or replace define for facetracking
