@@ -407,3 +407,5 @@ static inline ARPlaneDetection GetARPlaneDetectionFromUnityARPlaneDetection(Unit
         ret |= ARPlaneDetectionVertical;
     return ret;
 }
+
+inline void UnityARUserAnchorDataFromARAnchorPtr(UnityARUserAnchorData& anchorData, ARAnchor* nativeAnchor);

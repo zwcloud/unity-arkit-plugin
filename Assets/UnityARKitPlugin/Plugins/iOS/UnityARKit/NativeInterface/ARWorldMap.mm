@@ -24,6 +24,27 @@ void worldMap_Dump(ARWorldMap* worldMap)
         NSLog([anchor.identifier UUIDString]);
     }
 }
+
+int worldMap_GetAnchorCount(const void* worldMapPtr)
+{
+    if (worldMapPtr == nullptr || !worldMap_GetSupported())
+    {
+        return -1;
+    }
+    
+    ARWorldMap* worldMap = (__bridge ARWorldMap*)worldMapPtr;
+    
+    return worldMap.anchors.count;
+}
+    
+void worldMap_GetAnchorByIndex(const void* worldMapPtr, int index, UnityARUserAnchorData* anchor)
+{
+    if (worldMapPtr == nullptr || !worldMap_GetSupported())
+        return;
+    
+    ARWorldMap* worldMap = (__bridge ARWorldMap*)worldMapPtr;
+    UnityARUserAnchorDataFromARAnchorPtr(*anchor, worldMap.anchors[index]);
+}
     
 bool worldMap_Save(const void* worldMapPtr, const char* path)
 {
