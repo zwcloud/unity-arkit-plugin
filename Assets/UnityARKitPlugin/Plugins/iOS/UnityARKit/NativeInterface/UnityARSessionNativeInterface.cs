@@ -287,6 +287,7 @@ namespace UnityEngine.XR.iOS
 
     }
 
+    [Flags]
     public enum UnityARSessionRunOption
     {
         /** The session will reset tracking. */
@@ -418,7 +419,7 @@ namespace UnityEngine.XR.iOS
 
         [DllImport("__Internal")]
         private static extern IntPtr session_GetARKitFramePtr(IntPtr nativeSession);
-    
+
         [DllImport("__Internal")]
         private static extern void StartWorldTrackingSession(IntPtr nativeSession, ARKitWorldTrackingSessionConfiguration configuration);
 
