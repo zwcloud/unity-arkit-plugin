@@ -21,9 +21,13 @@ public class PointCloudParticleExample : MonoBehaviour {
     {
         set
         {
+            if (this.currentPS == null)
+            {
+                return;
+            }
             if (this.material == null)
             {
-                this.material = this.GetComponent<ParticleSystemRenderer>().sharedMaterial;
+                this.material = this.GetComponent<Renderer>().sharedMaterial;
             }
 
             this.material.SetColor("_TintColor", value);
