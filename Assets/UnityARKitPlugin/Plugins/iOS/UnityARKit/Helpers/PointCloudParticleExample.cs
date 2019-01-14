@@ -18,7 +18,16 @@ public class PointCloudParticleExample : MonoBehaviour {
         currentPS = Instantiate (pointCloudParticlePrefab);
         frameUpdated = false;
 	}
-	
+
+    public Color StartColor
+    {
+        set
+        {
+            var main = this.currentPS.main;
+            main.startColor = value;
+        }
+    }
+
     public void ARFrameUpdated(UnityARCamera camera)
     {
         m_PointCloudData = camera.pointCloudData;
@@ -32,7 +41,7 @@ public class PointCloudParticleExample : MonoBehaviour {
                 int numParticles = Mathf.Min (m_PointCloudData.Length, maxPointsToShow);
                 ParticleSystem.Particle[] particles = new ParticleSystem.Particle[numParticles];
                 int index = 0;
-                foreach (Vector3 currentPoint in m_PointCloudData) {     
+                foreach (Vector3 currentPoint in m_PointCloudData) {
                     particles [index].position = currentPoint;
                     particles [index].startColor = new Color (1.0f, 1.0f, 1.0f);
                     particles [index].startSize = particleSize;
