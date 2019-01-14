@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.XR.iOS;
 
 public class PointCloudParticleExample : MonoBehaviour {
@@ -11,24 +9,24 @@ public class PointCloudParticleExample : MonoBehaviour {
     private bool frameUpdated = false;
     private ParticleSystem currentPS;
     private ParticleSystem.Particle [] particles;
+    private Material material;
 
-	// Use this for initialization
 	void Start () {
         UnityARSessionNativeInterface.ARFrameUpdatedEvent += ARFrameUpdated;
         currentPS = Instantiate (pointCloudParticlePrefab);
         frameUpdated = false;
 	}
 
-    public Color StartColor
+    public Color TintColor
     {
         set
         {
-            if (!this.currentPS)
+            if (this.material == null)
             {
-                return;
+                this.material = this.GetComponent<ParticleSystemRenderer>().sharedMaterial;
             }
-            var main = this.currentPS.main;
-            main.startColor = value;
+
+            this.material.SetColor("_TintColor", value);
         }
     }
 
