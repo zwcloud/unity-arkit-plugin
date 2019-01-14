@@ -9,7 +9,7 @@ public class PointCloudParticleExample : MonoBehaviour {
     private bool frameUpdated = false;
     private ParticleSystem currentPS;
     private ParticleSystem.Particle [] particles;
-    private Material material;
+    private Material particleMaterial;
 
 	void Start () {
         UnityARSessionNativeInterface.ARFrameUpdatedEvent += ARFrameUpdated;
@@ -25,12 +25,12 @@ public class PointCloudParticleExample : MonoBehaviour {
             {
                 return;
             }
-            if (this.material == null)
+            if (this.particleMaterial == null)
             {
-                this.material = this.GetComponent<Renderer>().sharedMaterial;
+                this.particleMaterial = this.currentPS.GetComponent<Renderer>().sharedMaterial;
             }
 
-            this.material.SetColor("_TintColor", value);
+            this.particleMaterial.SetColor("_TintColor", value);
         }
     }
 
