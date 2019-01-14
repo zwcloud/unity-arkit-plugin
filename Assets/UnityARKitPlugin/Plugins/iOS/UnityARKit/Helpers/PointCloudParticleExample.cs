@@ -23,6 +23,10 @@ public class PointCloudParticleExample : MonoBehaviour {
     {
         set
         {
+            if (!this.currentPS)
+            {
+                return;
+            }
             var main = this.currentPS.main;
             main.startColor = value;
         }
